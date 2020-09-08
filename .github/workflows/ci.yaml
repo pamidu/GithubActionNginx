@@ -8,6 +8,14 @@ jobs:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
+
+      - name: Create file 
+        env: 
+          K8S_SECRET: ${{ secrets.K8S_SECRET }}
+        run: echo "$K8S_SECRET" >> $PWD/secret.yaml 
+      - name : read secret
+        run : cat secret.yaml
+      
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v2
         with:
@@ -17,13 +25,7 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: homework
-      - name: Create file 
-        env: 
-          K8S_SECRET: ${{ secrets.K8S_SECRET }}
-        run: echo "$K8S_SECRET" >> secret.yaml 
-      - name : read secret
-        run : cat secret.yaml
-
+          
       - name: Trigger deploy
         uses: Consensys/kubernetes-action@master
         env:
