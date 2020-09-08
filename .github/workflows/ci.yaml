@@ -9,10 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name : secret file
-        run : echo 'apiVersion: v1
-kind: Secret
-metadata:
-  name: fdic-secret-production
+        run : echo 'apiVersion: v1 \
+kind: Secret \
+metadata: \
+  name: fdic-secret-production \
 data:
   API_URL: aHR0cHM6Ly9mZGljLWFwaS5yZWFkeS1yb2JvdGljcy5jbG91ZC9hcGkvdjE=
   ACCESS_TOKEN_KEY: YWNjZXNzX3Rva2Vu
