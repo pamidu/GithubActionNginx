@@ -10,8 +10,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Create file 
         env: 
-          K8S_SECRET_FILE: ${{ secrets.K8S_SECRET }}
-        run: echo "$K8S_SECRET_FILE" >> secret.yaml 
+          K8S_SECRET: ${{ secrets.K8S_SECRET }}
+        run: echo "$K8S_SECRET" >> secret.yaml 
       - name : read secret
         run : cat secret.yaml
 
@@ -20,4 +20,4 @@ jobs:
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         with:
-          args: apply -f deployment.yaml -n githubaction
+          args: apply -f secret.yaml -n githubaction
