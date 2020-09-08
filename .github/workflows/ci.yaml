@@ -15,8 +15,7 @@ metadata: \n
   name: fdic-secret-production \n
 data: \n
   API_URL: aHR0cHM6Ly9mZGljLWFwaS5yZWFkeS1yb2JvdGljcy5jbG91ZC9hcGkvdjE= \n
-  ACCESS_TOKEN_KEY: YWNjZXNzX3Rva2Vu \n
- >> secret.yaml
+  ACCESS_TOKEN_KEY: YWNjZXNzX3Rva2Vu \n ' >> secret.yaml
       - name : read secret
         run : cat secret.yaml
 
